@@ -122,6 +122,7 @@ function negateExpression() {
  * Converts the current expression to a percentage.
  */
 function calculatePercentage() {
+    if(expression === '' || expression === '-') return;
     expression = String(parseFloat(expression) / 100);
     updateOutput();
 }
