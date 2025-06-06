@@ -133,7 +133,7 @@ function evaluateExpression() {
     const num1 = parseFloat(firstNumber);
     const num2 = parseFloat(secondNumber);
     
-    if (num1 === 0 && num2 === 0) return;
+    if (num1 && num2 === 0) return;
     
     switch (operator) {
         case '/':
