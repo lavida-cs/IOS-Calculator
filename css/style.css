@@ -32,6 +32,8 @@ body {
 
 #output {
     font-size: 4rem;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #inputs {
@@ -51,7 +53,7 @@ body {
     background: none;
     aspect-ratio: 1/1;
     border-radius: 100%;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .btn.dark:active{
@@ -81,4 +83,21 @@ body {
     border-radius: 6rem;
     text-align: left;
     padding-inline: 2rem;
+}
+
+
+@media(min-width: 768px){
+    html,body{
+        height: 100vh
+    }
+    
+    body{
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    #inputs, #output{
+        min-width: 500px;
+        max-width: 500px;
+    }
 }
