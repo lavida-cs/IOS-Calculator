@@ -19,7 +19,7 @@ let secondNumber = null;
  */
 function clickedBtn(e) {
     const btn = e.target.dataset.action;
-    if(!btn) return;
+    if (!btn) return;
     
     if (functions.includes(btn)) {
         performAction(btn);
@@ -34,7 +34,7 @@ function clickedBtn(e) {
     if (btn === '0' && expression === '0') return;
     
     if (btn === 'decimal') {
-        if(expression === ''){
+        if (expression === '') {
             expression = '0.'
             updateOutput()
         }
@@ -122,7 +122,7 @@ function negateExpression() {
  * Converts the current expression to a percentage.
  */
 function calculatePercentage() {
-    if(expression === '' || expression === '-') return;
+    if (expression === '' || expression === '-') return;
     expression = String(parseFloat(expression) / 100);
     updateOutput();
 }
@@ -134,21 +134,29 @@ function evaluateExpression() {
     const num1 = parseFloat(firstNumber);
     const num2 = parseFloat(secondNumber);
     
-    if (num1 && num2 === 0) return;
+    if (operator === '/' && num2 === 0) return;
     
     switch (operator) {
         case '/':
-            expression = String(num1 / num2);
+            expression = num1 / num2;
             break;
         case '×':
-            expression = String(num1 * num2);
+            expression = num1 * num2;
             break;
         case '-':
-            expression = String(num1 - num2);
+            expression = num1 - num2;
             break;
         case '+':
-            expression = String(num1 + num2);
+            expression = num1 + num2;
             break;
+    }
+    
+    // Format result if it's very large or small
+    if (Math.abs(expression) >= 1e10 || Math.abs(expression) < 1e-6) {
+        expression = String(Number(expression).toExponential(6));
+    } else {
+        // Round long decimals without chopping them off
+        expression = Number(expression.toFixed(3)).toString();
     }
     
     updateOutput();
