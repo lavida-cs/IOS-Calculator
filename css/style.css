@@ -1,9 +1,9 @@
-:root {
-    --clr-bg: #111111;
+ :root {
+    --clr-bg: #111113;
     --clr-texts: #FFFFFF;
-    --clr-light: #A5A5A5;
-    --clr-dark: #333333;
-    --clr-orange: #F89B11;
+    --clr-light: #343539;
+    --clr-dark: #18191B;
+    --clr-green: #267C53;
 }
 
 * {
@@ -51,30 +51,32 @@ body {
     font: inherit;
     color: inherit;
     background: none;
+    font-size: 1.8rem;
     aspect-ratio: 1/1;
     border-radius: 100%;
-    font-size: 1.8rem;
 }
 
 .btn.dark:active{
     filter: brightness(1.5);
 }
 .btn.light:active,
-.btn.orange:active{
+.btn.green:active{
     filter: brightness(0.8);
 }
 
 .btn.light {
     background: var(--clr-light);
-    color: var(--clr-bg);
+    border: 1px solid hsla(228, 5%, 30%, 1);
 }
 
 .btn.dark {
     background: var(--clr-dark);
+    border: 1px solid #343539;
 }
 
-.btn.orange {
-    background: var(--clr-orange);
+.btn.green {
+    background: var(--clr-green);
+    border: 1px solid hsla(151, 53%, 45%, 1);
 }
 
 .btn[data-action="0"] {
@@ -82,7 +84,7 @@ body {
     aspect-ratio: initial;
     border-radius: 6rem;
     text-align: left;
-    padding-inline: 2rem;
+    padding-inline-start: 2.5rem;
 }
 
 

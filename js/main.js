@@ -94,8 +94,9 @@ function performAction(action) {
             calculatePercentage();
             break;
         case 'evaluate':
-            if (!firstNumber && !secondNumber) return;
-            evaluateExpression();
+            if (firstNumber && secondNumber){
+                evaluateExpression();
+            };
             break;
     }
 }
